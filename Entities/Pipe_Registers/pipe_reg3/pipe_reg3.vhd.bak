@@ -1,0 +1,151 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity pipe_reg3 is 
+    port(
+	     instr_RR_2: in std_logic(15 downto 0);
+        mux4_out_1, s1_1_in, s1_2_in: in std_logic_vector(15 downto 0);             ---alu1_in <= mux4_out
+	     CLK, RST: in std_logic;
+		  pipe_reg3_enable: in std_logic;
+		  instr_EX_1: out std_logic_vector(15 downto 0);
+        alu1_in_1, s1_1_out, s1_2_out: out std_logic_vector(15 downto 0);
+		  CV_1, EN_1, mux10_1: out std_logic_vector(1 downto 0);
+		  C_in_1, Z_in_1, mux6_1: out std_logic) 
+end entity;
+
+architecture pipe of pipe_reg3 is
+
+	signal  alu1_inp, alu2_outp, s10_inp, s11_inp, instp : std_logic_vector(15 downto 0);
+	signal  CVp, ENp, mux10p : std_logic_vector(1 downto 0);
+	signal  Z0p, Z_inp, C_inp, mux6p: std_logic;
+	signal opcode	: std_logic_vector(6 downto 0);
+   signal control : std_logic_vector(5 downto 0);        --signals for pipeline
+
+	
+begin
+
+CV <= control(5 downto 4);     -- assign this after begin in architecture
+EN <= control(3 downto 2);   
+C_in <= control(1);
+Z_in <= control(0);
+mux6 <= control(8);
+mux10 <= control(7 downto 6); --mux10,mux10,cv,cv,en,en,cin,zin
+opcode(6 downto 3) <= instr(15 downto 12);
+opcode(2 downto 0) <= instr(2 downto 0);
+
+
+
+	 write_proc: process(pipe_reg1_enable, alu2_outp, mem1_outp)
+	 begin 
+	 
+	 ---in begin of write process
+CV_p <= CV;
+EN_p <= EN;
+Cin_p <= C_in;
+Zin_p <= Z_in;
+
+	     if(pipe_reg3_enable = '1') then 
+	        alu1_inp <=  alu1_in;
+			  alu2_outp <= alu2_out;
+			   s10_inp <= s10_in;
+			   s11_inp <= s11_in;
+				
+				CVp <= CV;
+				ENp <= EN;
+				mux10p <= mux10;
+				
+				Z_inp <= Z_in;
+				C_inp <= C_in;
+				mux6p <= mux6;
+				instp <= inst;
+		  else null;
+	     end if;
+	 end process write_proc;
+
+    read_proc: process(CLK, RST, alu1_in1, alu2_out1, s10_in1, s11_in1, Z01, Z_in1, C_in1, mux61, opcode )
+    begin
+		  if(RST = '1') then 
+		      alu1_in1 <= "0000000000000000";
+				alu2_out1<= "0000000000000000";
+				 s10_in1 <= "0000000000000000";
+				 s11_in1 <= "0000000000000000";
+				
+				 Z_in1 <= "0";
+				 C_in1 <= "0";
+				 mux61 <= "0";
+				 
+				 
+				CV1 <= "00";
+				EN1 <= "00";
+				mux101 <= "00";
+				 
+        elsif (CLK'event and CLK = '0') then 	--writing at negative clock edge
+		  
+		  
+		   alu1_in1 <=  alu1_inp;
+			   alu2_out1 <= alu2_outp;
+			   s10_in1 <= s10_inp;
+			   s11_in1 <= s11_inp;
+				inst1 <= instp;
+				
+		  
+		  case opcode is  
+			   when "0000xxx" => 
+					  control <= "110001110";
+					when "0001000" =>
+					  control <= "001100110";
+					when "0001010" =>
+					  control <= "001110110";
+					  when "0001001" =>
+					  control <= "001101110";
+					  when "0001011" =>
+					  control <= "001111111";
+					  when "0001100" =>
+					  control <= "001100111";
+					  when "0001110" =>
+					  control <= "001110111";
+					  when "0001101" =>
+					  control <= "001101111";
+					  when "0001111" =>
+					  control <= "001111111";
+					  
+					when "0010000" =>
+					  control <= "010100110";
+					when "0010010" =>
+					  control <= "010110110";
+					when "0010001" =>
+					  control <= "010101110";
+					 when "0010100" =>
+					  control <= "010100110";
+					  when "0010110" =>
+					  control <= "010110110";
+					  when "0010101" =>
+					  control <= "010101110";
+					  
+					when "0011xxx" =>
+					  control <= "000000110";
+					when "0100xxx" =>
+					  control <= "0000001xx";
+					when "0101xxx" =>
+					  control <= "000000101";
+					when "0110xxx" =>
+					  control <= "xxxxxxxxx"; 
+					when "0111xxx" =>
+					  control <= "xxxxxxxxx";
+					when "1000xxx" =>
+					  control <= "0000001xx";
+					when "1001xxx" =>
+					  control <= "0000001xx";
+					when "1100xxx" =>
+					  control <= "000000101";
+					when "1101xxx" =>
+					  control <= "000000101";
+					when "1111xxx" =>
+					  control <= "0000001xx"; 
+					when others =>
+					   null;
+      end if; 
+    end process read_proc;
+
+end pipe;

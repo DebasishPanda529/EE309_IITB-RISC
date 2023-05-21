@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Sat May 06 21:09:08 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : branch_jump_control
+Top-level Entity Name : branch_jump_control
+Family : MAX 10
+Total logic elements : 2
+    Total combinational functions : 2
+    Dedicated logic registers : 0
+Total registers : 0
+Total pins : 19
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0

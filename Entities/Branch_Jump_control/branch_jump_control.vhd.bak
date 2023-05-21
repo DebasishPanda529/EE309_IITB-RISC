@@ -1,0 +1,26 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity branch_jump_control is
+    port(Instr: in std_logic_vector(15 downto 0);
+         Pipe_reg4: in std_logic_vector(x downto 0);
+         mux9: out std_logic);
+end entity branch_jump_control;
+
+architecture mux9_control of branch_jump_control is 
+
+begin  
+   random_proc: process(Instr, Pipe_reg4)
+      begin
+         if(Pipe_reg4(4) = '1') then              --z0 bit
+            case Instr(15 downto 12) is 
+                when "1000" | "1001" =>           --beq/blt
+                  mux9 <= '1';
+                when others =>
+                  mux9 <= '0';
+            end case;
+          else mux9 <= '0';
+          end if;
+       end process;
+end mux9_control;

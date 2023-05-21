@@ -1,0 +1,25 @@
+Entities designed:
+
+i) ALU1, ALU2, ALU3: ALUs meant for arithmetic and logical operations. There is also an additional ALU4 inside EX stage, however it's code is not there in the Enitities folder exclusively.
+
+ii) Branch_Jump_control: To control MUX9's output when branch or jump instructions happen.
+
+iii) Data_memory: Memory block 2, used to store data
+
+iv) Instruction_memory: Memory block 1, used to store instructions.
+
+v) data_hazard_1, data_hazard_2, data_hazard_3: These blocks check for data dependencies and do the requisite data forwarding.
+
+vi) Pipe_Register_control: To control the flow of information through the pipeline registers and stall the stages, as and when required.
+
+vii) Register_file: Constains 16-bit registers from R0-R7.
+
+viii) SE1: Sign extender for 1-bit data.
+
+ix) SE6: Sign extender for 6-bit data.
+
+x) SE9: Sign xtender for 9-bit data.
+
+xi) Shifter: 1-bit left shifter.
+
+xii) Stages: Contains the code required for each stage. Note that we do not need to design an entity for WB stage explicitly. 

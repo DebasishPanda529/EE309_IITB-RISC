@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Fri May 05 13:08:24 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : ALU1
+Top-level Entity Name : DUT
+Family : MAX 10
+Device : 10M25SAE144C8G
+Power Models : Final
+Total Thermal Power Dissipation : 230.01 mW
+Core Dynamic Thermal Power Dissipation : 0.00 mW
+Core Static Thermal Power Dissipation : 223.00 mW
+I/O Thermal Power Dissipation : 7.01 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

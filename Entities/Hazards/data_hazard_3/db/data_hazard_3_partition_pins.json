@@ -1,0 +1,97 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "mux4_control_2",
+					"strict" : false
+				},
+				{
+					"name" : "mux5_control_2",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[14]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[12]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[15]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[14]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[15]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[12]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[13]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[13]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[3]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[4]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[10]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[9]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[5]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[11]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[10]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[9]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_EX[11]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[7]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[6]",
+					"strict" : false
+				},
+				{
+					"name" : "instr_WB[8]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

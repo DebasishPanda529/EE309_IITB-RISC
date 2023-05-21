@@ -1,0 +1,18 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity data_hazard_1 is 
+  port(instr_EX, instr_RR: in std_logic_vector(15 downto 0);
+       mux4_control, mux5_control: out std_logic;);
+end entity;
+
+architecture hazard_1 of data_hazard_1 is
+begin
+
+hazard_proc: process();
+  begin 
+    if(instr_EX() = instr_RR()) then
+	    mux4_control <= '';
+	 elsif(instr_EX() = instr_RR()) then
+	    

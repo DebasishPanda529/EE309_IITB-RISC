@@ -1,0 +1,25 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity mem_access is 
+   port();
+end mem_access;
+
+architecture mem_flow of mem_access is 
+
+   component memory_unit2 is 
+	 port(CLK : in std_logic;
+        MWR_2 : in std_logic;     ---write enable bit
+		  MDR_2 : in std_logic;     ---read enable bit
+        RST : in std_logic;     
+        mem2_address : in std_logic_vector(15 downto 0);
+        mem2_data_in : in std_logic_vector(15 downto 0);
+        mem2_data_out : out std_logic_vector(15 downto 0));
+	end component;
+	
+signal 
+signal
+
+begin
+  	

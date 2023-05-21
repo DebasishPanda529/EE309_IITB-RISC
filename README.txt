@@ -1,0 +1,1 @@
+Although I have tried to fulfill as much as specifications as possible, due to lack of time, I was unable to execute the LM/SM instructions in Datapath and I was also unable to do debugging by simulation. I sincerely hope that my efforts into designing the system and entities would be duly considered by the evaluator. 

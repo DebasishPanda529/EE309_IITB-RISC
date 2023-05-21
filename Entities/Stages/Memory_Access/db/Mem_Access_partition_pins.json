@@ -1,0 +1,373 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "mux_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[12]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[13]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[14]",
+					"strict" : false
+				},
+				{
+					"name" : "mux_out[15]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[8]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[9]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[10]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[11]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[12]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[13]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[14]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_7[15]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[12]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[13]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[14]",
+					"strict" : false
+				},
+				{
+					"name" : "mux8_out[15]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[0]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[1]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[2]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[4]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[5]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[6]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[7]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[8]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[9]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[10]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[11]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[12]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[13]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[14]",
+					"strict" : false
+				},
+				{
+					"name" : "ID_in_6[15]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_add[2]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_add[3]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_add[1]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_add[0]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_add[4]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_add[5]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_add[6]",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_rd",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_wr",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[4]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[8]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[9]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[10]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[11]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[12]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[13]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[14]",
+					"strict" : false
+				},
+				{
+					"name" : "mem2_in[15]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

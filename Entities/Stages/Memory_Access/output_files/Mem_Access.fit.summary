@@ -1,0 +1,18 @@
+Fitter Status : Failed - Sat May 06 20:51:42 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : Mem_Access
+Top-level Entity Name : mem_access
+Family : MAX 10
+Device : 10M25SAE144C8G
+Timing Models : Final
+Total logic elements : 3,576 / 24,960 ( 14 % )
+    Total combinational functions : 1,535 / 24,960 ( 6 % )
+    Dedicated logic registers : 2,064 / 24,960 ( 8 % )
+Total registers : 2064
+Total pins : 104 / 101 ( 103 % )
+Total virtual pins : 0
+Total memory bits : 0 / 691,200 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 110 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

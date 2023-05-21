@@ -1,0 +1,153 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "alu2_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[7]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[8]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[9]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[10]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[11]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[12]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[13]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[14]",
+					"strict" : false
+				},
+				{
+					"name" : "alu2_out[15]",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "RST",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[0]",
+					"strict" : false
+				},
+				{
+					"name" : "mux9",
+					"strict" : false
+				},
+				{
+					"name" : "PC_WR",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[1]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[2]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[3]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[4]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[5]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[6]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[7]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[8]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[9]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[10]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[11]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[12]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[13]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[14]",
+					"strict" : false
+				},
+				{
+					"name" : "alu3_outp[15]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

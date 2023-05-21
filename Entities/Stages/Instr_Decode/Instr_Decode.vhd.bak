@@ -1,0 +1,102 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity sign_extend_6 is 
+port(SE_in_6: in std_logic_vector(5 downto 0);
+     SE_out_6: out std_logic_vector(15 downto 0));
+end entity sign_extend_6;
+
+architecture Extend_6 of sign_extend_6 is
+begin
+SE_out_6(5 downto 0) <= SE_in_6(5 downto 0);
+SE_out_6(15 downto 6) <= "0000000000";
+end Extend_6;
+
+
+---------------------------------------------------------------------------------------
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity sign_extend_9 is 
+port(SE_in_9: in std_logic_vector(8 downto 0);
+     SE_out_9: out std_logic_vector(15 downto 0));
+end entity sign_extend_9;
+
+architecture Extend_9 of sign_extend_9 is
+begin
+SE_out_9(6 downto 0) <= "0000000";
+SE_out_9(15 downto 7) <= SE_in_9(8 downto 0);
+end Extend_9;
+
+
+---------------------------------------------------------------------------------------
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity IR is
+port(IR_in: in std_logic_vector(15 downto 0);
+     IR_out1, IR_out2, IR_out3: out std_logic_vector(2 downto 0);
+	  IR_out4: out std_logic_vector(5 downto 0);
+	  IR_out5: out std_logic_vector(8 downto 0));
+end entity IR;
+
+architecture Instr_Reg of IR is 
+begin
+IR_out1 <= IR_in(11 downto 9);
+IR_out2 <= IR_in(8 downto 6);
+IR_out3 <= IR_in(5 downto 3);
+IR_out4 <= IR_in(5 downto 0);
+IR_out5 <= IR_in(8 downto 0);
+end Instr_Reg;
+
+
+---------------------------------------------------------------------------------------
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity decode is 
+   port(ID_in: in std_logic_vector(15 downto 0);
+	     ID_out1, ID_out2, ID_out3: out std_logic_vector(2 downto 0);
+		  ID_out4: out std_logic_vector(5 downto 0);
+		  ID_out5: out std_logic_vector(8 downto 0));
+end decode;
+
+architecture Instr_Decode of decode is 
+
+   component IR is
+	  port(IR_in: in std_logic_vector(15 downto 0);
+          IR_out1, IR_out2, IR_out3: out std_logic_vector(2 downto 0);
+	       IR_out4: out std_logic_vector(5 downto 0);
+	       IR_out5: out std_logic_vector(8 downto 0));
+	end component;
+	
+	component sign_extend_6 is
+	  port(SE_in_6: in std_logic_vector(5 downto 0);
+          SE_out_6: out std_logic_vector(15 downto 0));
+	end component;
+	
+	component sign_extend_9 is
+	  port(SE_in_9: in std_logic_vector(8 downto 0);
+          SE_out_9: out std_logic_vector(15 downto 0));
+	end component;
+	
+signal IR_outp4: out std_logic_vector(5 downto 0);
+signal IR_outp5: out std_logic_vector(8 downto 0);
+
+begin
+
+IR_instance: port map(IR_in => ID_in, IR_out1 => ID_out1, IR_out2 => ID_out2, IR_out3 => ID_out3, IR_out4 => IR_outp4, IR_out5 => IR_outp5);
+SE6: port map(SE_in_6 => IR_outp4, SE_out_6 => ID_out4);
+SE9: port map(SE_in_9 => IR_outp5, SE_out_9 => ID_out5);
+
+end Instr_Decode;

@@ -1,0 +1,32 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity memory_unit1 is
+    port(CLK : in std_logic;
+        RST : in std_logic;     
+        mem1_address : in std_logic_vector(15 downto 0);
+        mem1_inst : out std_logic_vector(15 downto 0));
+    
+end entity;
+
+architecture tacit of memory_unit1 is
+--type memory1_arr is array(0 to 65535) of std_logic_vector(15 downto 0);
+type memory1_arr is array(0 to 127) of std_logic_vector(15 downto 0);
+
+signal inst : memory1_arr := (others => (others => '0'));
+-- we can feed our instructions here in this array before executing the program
+
+begin
+--    memory1_proc: process(CLK,RST)
+--    begin
+--        --if (RST = '1') then null;
+--        
+--	    if(MDR_1 = '1') then
+--	        mem1_inst <= inst(to_integer(unsigned(mem1_address)));
+--        else null;
+--		  end if;
+--    end process memory1_proc;
+mem1_inst <=  inst(to_integer(unsigned(mem1_address)));
+
+end architecture tacit;

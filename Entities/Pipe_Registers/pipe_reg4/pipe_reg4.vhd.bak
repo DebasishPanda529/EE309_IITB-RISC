@@ -1,0 +1,80 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity pipe_reg4 is 
+    port(instr_EX_1 : in std_logic_vector(15 downto 0);
+         mem2_address2, mem2_data2: in std_logic_vector(15 downto 0);
+		   CLK,RST: in std_logic;
+		   pipe_reg2_enable: in std_logic;
+         out1, out2: out std_logic_vector(15 downto 0);
+		   mwr_in, mdr_in: in std_logic;
+		   mwr_out, mdr_out: out std_logic
+		   instr_MA_1: out std_logic_ve ctor(15 downto 0));     
+end entity;
+
+architecture pipe4 of pipe_reg2 is
+   signal opcode : std_logic_vector(3 downto 0);
+	signal mem2_addr_p, mem2_data_p : std_logic_vector(15 downto 0);
+	signal control : std_logic_vector(1 downto 0);
+	signal mwr_p, mdr_p : std_logic;
+begin
+   mwr <= control(1);
+	mdr <=  control(0);
+   opcode <= instr(15 downto 12);
+	 write_proc: process(pipe_reg2_enable, mem2_address2, mem2_data2)
+	 begin 
+	     if(pipe_reg2_enable = '1') then 
+	        mem2_addr_p <= mem2_address2;
+			  mem2_data_p <= mem2_data2;
+			  mwr_p <= mwr;
+			  mdr_p <= mdr;
+		  else null;
+	     end if;
+	 end process write_proc;
+
+    read_proc: process(CLK, RST,  mem2_address2, mem2_data2, opcode )
+    begin
+		  if(RST = '1') then 
+		      out1 <= "0000000000000000";
+				out2 <= "0000000000000000";
+				mwr_1 <= '0';
+				mdr_1 <= '0';
+        elsif (CLK'event and CLK = '0') then  --writing at negative clock edge
+          case opcode is 
+			   when "0000" => 
+					  control <= "00";
+					when "0001" =>
+					  control <= "00";
+					when "0010" =>
+					  control <= "00";
+					when "0011" =>
+					  control <= "00";
+					when "0100" =>
+					  control <= "11";
+					when "0101" =>
+					  control <= "11";
+					when "0110" =>
+					  control <= "00"; 
+					when "0111" =>
+					  control <= "00";
+					when "1000" =>
+					  control <= "00";
+					when "1001" =>
+					  control <= "00";
+					when "1100" =>
+					  control <= "00";
+					when "1101" =>
+					  control <= "00";
+					when "1111" =>
+					  control <= "00"; 
+			      end case;
+			   out1 <= mem2_addr_p;
+            out2 <= mem2_data_p;
+				mwr_1 <= mwr_p;
+				mdr_1 <= mdr_p;
+		   else null;
+        end if;
+    end process read_proc;
+
+end architecture pipe4;

@@ -1,0 +1,358 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity register_file is 
+    port(
+        RF_A1,RF_A2,RF_A3 : in std_logic_vector(2 downto 0);         ---register encoding input
+        RF_D3 : in std_logic_vector(15 downto 0);                    ---content to be stored in a given register
+        RF_WR : in std_logic;                                        
+        RF_RD : in std_logic;
+        CLK,RST : in std_logic;
+        RF_D1,RF_D2 : out std_logic_vector(15 downto 0));             ---output from registers
+        
+end entity;
+
+architecture regf of register_file is    
+    signal R0,R1,R2,R3,R4,R5,R6,R7 : std_logic_vector(15 downto 0) := (others => '0');
+--    signal R5 : std_logic_vector(15 downto 0) := "0000000000000001";
+--    signal R6 : std_logic_vector(15 downto 0) := "0000000000000010";  
+  
+begin
+    --writing to register when RF_WR is set
+    write_process : process(CLK)
+    begin
+        if (CLK'event and CLK = '0') then  -- negative clock edge 
+            if(RF_WR = '1') then
+               case RF_A3 is
+      when "000" =>
+        R0 <= RF_D3;
+      when "001" =>
+        R1 <= RF_D3;
+      when "010" =>
+        R2 <= RF_D3;
+      when "011" =>
+        R3 <= RF_D3;
+      when "100" =>
+        R4 <= RF_D3;
+      when "101" =>
+        R5 <= RF_D3;
+      when "110" =>
+        R6 <= RF_D3;
+      when "111" =>
+        R7 <= RF_D3;
+      when others =>
+        null;
+                end case;            
+    else null;
+    end if;
+        end if;
+    end process write_process;
+
+    --reading from the registers when RF_RD is set
+    read_process : process(RF_A1,RF_A2,RF_RD,R0,R1,R2,R3,R4,R5,R6,R7)
+    begin
+        if(RF_RD = '1') then
+			 case RF_A1 is
+			  when "000" =>
+				 RF_D1 <= R0;
+			  when "001" =>
+				 RF_D1 <= R1;
+			  when "010" =>
+				 RF_D1 <= R2;
+			  when "011" =>
+				 RF_D1 <= R3;
+			  when "100" =>
+				 RF_D1 <= R4;
+			  when "101" =>
+				 RF_D1 <= R5;
+			  when "110" =>
+				 RF_D1 <= R6;
+			  when "111" =>
+				 RF_D1 <= R7;
+			  when others =>
+				 null;
+           end case;
+    
+            --Address 2
+		    case RF_A2 is
+			  when "000" =>
+				 RF_D2 <= R0;
+			  when "001" =>
+				 RF_D2 <= R1;
+			  when "010" =>
+				 RF_D2 <= R2;
+			  when "011" =>
+				 RF_D2 <= R3;
+			  when "100" =>
+				 RF_D2 <= R4;
+			  when "101" =>
+				 RF_D2 <= R5;
+			  when "110" =>
+				 RF_D2 <= R6;
+			  when "111" =>
+				 RF_D2 <= R7;
+			  when others =>
+				 null;
+          end case;
+        else null;    
+        end if;
+    end process read_process;
+    
+end regf;
+-----------------------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity sign_extend_6 is 
+port(mem1_data_5_0: in std_logic_vector(5 downto 0);
+     SE_out_6: out std_logic_vector(15 downto 0));
+end entity;
+
+architecture Extend of sign_extend_6 is
+begin
+exteend : process(mem1_data_5_0)
+begin
+SE_out_6 (5 downto 0) <= mem1_data_5_0;
+SE_out_6 (15 downto 6) <= "0000000000";
+end process exteend;
+
+end Extend;
+---------------------------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity sign_extend_9 is 
+port(mem1_data_8_0: in std_logic_vector(8 downto 0);
+     SE_out_9: out std_logic_vector(15 downto 0));
+end entity;
+
+architecture Extend of sign_extend_9 is
+begin
+SE_out_9(15 downto 9) <= "0000000";
+SE_out_9(8 downto 0) <= mem1_data_8_0;
+end Extend;
+
+--------------------------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity reg_read is 
+   port(reg_rd, mux1, mux2: in std_logic;
+	     CLK, RST: in std_logic;
+		  mem1_data_11_9: in std_logic_vector (2 downto 0);
+		  mem1_data_8_6: in std_logic_vector (2 downto 0);
+	     rf_d1,rf_d2: out std_logic_vector(15 downto 0);
+		  rf_a3 : in std_logic_vector(2 downto 0);
+		  rf_d3: in std_logic_vector(15 downto 0));
+end reg_read;
+
+architecture behav of reg_read is 
+
+component register_file is 
+    port(
+        RF_A1,RF_A2 : in std_logic_vector(2 downto 0);                                              
+        RF_RD : in std_logic;
+        CLK,RST : in std_logic;
+        RF_D1,RF_D2 : out std_logic_vector(15 downto 0);
+        		  
+       RF_A3 : in std_logic_vector(2 downto 0);
+		 RF_D3: in std_logic_vector(15 downto 0) );
+end component;
+
+signal rf_a1, rf_a2 : std_logic_vector(2 downto 0);
+
+begin
+
+reg_read : register_file port map (CLK => CLK, RST => RST, RF_RD => reg_rd , RF_A1 => rf_a1, RF_A2 => rf_a2, RF_D1 => rf_d1, RF_D2 => rf_d2, RF_A3 => rf_a3, RF_D3 => rf_d3); 
+
+reg_rd_process: process(CLK, RST, mux1, mux2)
+begin  
+
+  if (mux1 = '1') then
+    rf_a1 <= mem1_data_11_9;
+  else rf_a1 <= mem1_data_8_6;
+  end if;
+  
+  if (mux2 = '1') then
+    rf_a2 <= mem1_data_8_6;
+  else rf_a2 <= mem1_data_11_9;
+  end if;
+  
+  
+end process;
+end architecture behav;
+  
+---------------------------------------------------------------------------------------------------	
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity muxx5 is 
+
+port(rf_d2: in std_logic_vector(15 downto 0);
+     CLK,RST: in std_logic;
+     SE_out_6: in std_logic_vector(15 downto 0);
+	  SE_out_9: in std_logic_vector(15 downto 0);
+	  mux5 : in std_logic_vector(1 downto 0);
+     mux5_out: out std_logic_vector(15 downto 0));
+end entity;
+
+architecture behav of muxx5 is
+
+begin
+process(CLK, RST, mux5)
+begin
+
+if  (mux5 = "00") then mux5_out <= rf_d2;
+elsif (mux5 = "01") then mux5_out <=  SE_out_6;
+elsif (mux5 = "10") then mux5_out <=  SE_out_9;
+else null;
+
+end if;
+
+end process;
+end behav;
+-------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity CMP1 is -- cmp sitting outside alu1
+    port(
+  mux5_out : in std_logic_vector(15 downto 0);
+  cmp1_enable : in std_logic;
+  alu1_b : out std_logic_vector(15 downto 0));
+end entity;
+
+architecture complement of CMP1 is
+
+begin
+   complement_proc: process(cmp1_enable, mux5_out)
+ begin
+  if(cmp1_enable = '1') then
+     for i in 0 to 15 loop
+     alu1_b(i) <= not(mux5_out(i));
+   end loop;
+  else alu1_b <= mux5_out;
+  end if;
+ end process complement_proc;
+    
+end complement;
+------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity muxx4 is 
+
+port(rf_d1: in std_logic_vector(15 downto 0);
+     CLK,RST: in std_logic;
+	  SE_out_9: in std_logic_vector(15 downto 0);
+	  mux4 : in std_logic;
+     alu1_a: out std_logic_vector(15 downto 0));
+end entity;
+
+architecture behav of muxx4 is
+
+begin
+process(CLK, RST, mux4)
+begin
+
+if (mux4 = '1') then alu1_a <= rf_d1;
+else alu1_a <= SE_out_9;
+end if;
+
+end process;
+end behav;
+----------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity muxx7 is 
+
+port(CLK,RST: in std_logic;
+     mux7 : in std_logic_vector(1 downto 0);
+     SE_out_6: in std_logic_vector(15 downto 0);
+	  SE_out_9: in std_logic_vector(15 downto 0);
+     mux7_out: out std_logic_vector(15 downto 0));
+end entity;
+
+architecture behav of muxx7 is
+
+begin
+process(CLK, RST, mux7)
+begin
+
+if  (mux7 = "00") then mux7_out <= SE_out_6;
+elsif (mux7 = "01") then mux7_out <=  SE_out_9;
+elsif (mux7 = "10") then mux7_out <= "0000000000000000";
+else null;
+end if;
+
+end process;
+end behav;
+-----------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity shifter is 
+    port(
+  mux7_out: in std_logic_vector(15 downto 0);
+  shift_enable : in std_logic;
+  alu3_b : out std_logic_vector(15 downto 0));
+end entity;
+
+architecture shift of shifter is
+begin 
+   shift_proc: process(shift_enable, mux7_out)
+ begin
+      if(shift_enable = '1') then
+       alu3_b(15 downto 0) <= mux7_out(14 downto 0) & '0';
+  else alu3_b <= mux7_out;
+    end if;
+ end process shift_proc;
+ 
+end shift;
+--------------------------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity muxx3 is 
+
+port(CLK,RST: in std_logic;
+     mux3 : in std_logic_vector(1 downto 0);
+     mem1_data_11_9: in std_logic_vector(2 downto 0);
+	  mem1_data_8_6: in std_logic_vector(2 downto 0);
+	  mem1_data_5_3: in std_logic_vector(2 downto 0);
+     mux3_out: out std_logic_vector(15 downto 0));
+end entity;
+
+architecture behav of muxx3 is
+
+begin
+process(CLK, RST, mux3)
+begin
+
+if  (mux3 = "00") then mux3_out <= mem1_data_11_9;
+elsif (mux3 = "01") then mux3_out <= mem1_data_8_6;
+elsif (mux3 = "10") then mux3_out <= mem1_data_5_3;
+else null;
+end if;
+
+end process;
+end behav;

@@ -1,0 +1,36 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity IITB_RISC is 
+   port(CLK, RST: in std_logic);
+end IITB_RISC;
+
+architecture complex of IITB_RISC is
+
+component instr_fetch is
+   port();
+end component;
+
+component Instr_Decode is 
+   port();
+end component;
+
+component reg_read is
+   port();
+end component;
+
+component exec is 
+   port();
+end component;
+
+component mem_access is 
+   port();
+end component;
+
+
+
+
+
+
+end architecture complex;

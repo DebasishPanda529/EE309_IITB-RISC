@@ -1,0 +1,12 @@
+Power Analyzer Status : Successful - Sat May 06 17:14:12 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : Mem_Access
+Top-level Entity Name : mem_access
+Family : MAX 10
+Device : 10M25SAE144C8G
+Power Models : Final
+Total Thermal Power Dissipation : 230.13 mW
+Core Dynamic Thermal Power Dissipation : 0.00 mW
+Core Static Thermal Power Dissipation : 223.00 mW
+I/O Thermal Power Dissipation : 7.13 mW
+Power Estimation Confidence : Low: user provided insufficient toggle rate data

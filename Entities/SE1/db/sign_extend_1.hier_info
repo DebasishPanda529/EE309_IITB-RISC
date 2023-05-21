@@ -1,0 +1,20 @@
+|sign_extend_1
+SE_in_1 => SE_out_1[0].DATAIN
+SE_out_1[0] <= SE_in_1.DB_MAX_OUTPUT_PORT_TYPE
+SE_out_1[1] <= <GND>
+SE_out_1[2] <= <GND>
+SE_out_1[3] <= <GND>
+SE_out_1[4] <= <GND>
+SE_out_1[5] <= <GND>
+SE_out_1[6] <= <GND>
+SE_out_1[7] <= <GND>
+SE_out_1[8] <= <GND>
+SE_out_1[9] <= <GND>
+SE_out_1[10] <= <GND>
+SE_out_1[11] <= <GND>
+SE_out_1[12] <= <GND>
+SE_out_1[13] <= <GND>
+SE_out_1[14] <= <GND>
+SE_out_1[15] <= <GND>
+
+

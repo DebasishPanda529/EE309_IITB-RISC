@@ -1,0 +1,18 @@
+Fitter Status : Successful - Sat May 06 19:15:53 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : pipe_reg5
+Top-level Entity Name : pipe_reg5
+Family : MAX 10
+Device : 10M25SAE144C8G
+Timing Models : Final
+Total logic elements : 71 / 24,960 ( < 1 % )
+    Total combinational functions : 36 / 24,960 ( < 1 % )
+    Dedicated logic registers : 35 / 24,960 ( < 1 % )
+Total registers : 35
+Total pins : 73 / 101 ( 72 % )
+Total virtual pins : 0
+Total memory bits : 0 / 691,200 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 110 ( 0 % )
+Total PLLs : 0 / 1 ( 0 % )
+UFM blocks : 0 / 1 ( 0 % )
+ADC blocks : 0 / 1 ( 0 % )

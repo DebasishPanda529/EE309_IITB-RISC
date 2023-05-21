@@ -1,0 +1,30 @@
+|branch_jump_control
+instr[0] => ~NO_FANOUT~
+instr[1] => ~NO_FANOUT~
+instr[2] => ~NO_FANOUT~
+instr[3] => ~NO_FANOUT~
+instr[4] => ~NO_FANOUT~
+instr[5] => ~NO_FANOUT~
+instr[6] => ~NO_FANOUT~
+instr[7] => ~NO_FANOUT~
+instr[8] => ~NO_FANOUT~
+instr[9] => ~NO_FANOUT~
+instr[10] => ~NO_FANOUT~
+instr[11] => ~NO_FANOUT~
+instr[12] => Mux0.IN19
+instr[12] => Mux1.IN19
+instr[12] => Mux2.IN19
+instr[13] => Mux0.IN18
+instr[13] => Mux1.IN18
+instr[13] => Mux2.IN18
+instr[14] => Mux0.IN17
+instr[14] => Mux1.IN17
+instr[14] => Mux2.IN17
+instr[15] => Mux0.IN16
+instr[15] => Mux1.IN16
+instr[15] => Mux2.IN16
+C0_pipe_reg4 => mux9.OUTPUTSELECT
+Z0_pipe_reg4 => mux9.OUTPUTSELECT
+mux9 <= mux9.DB_MAX_OUTPUT_PORT_TYPE
+
+

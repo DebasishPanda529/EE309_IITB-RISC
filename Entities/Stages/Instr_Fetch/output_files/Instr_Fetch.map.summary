@@ -1,0 +1,16 @@
+Analysis & Synthesis Status : Successful - Sat May 06 20:50:10 2023
+Quartus Prime Version : 20.1.1 Build 720 11/11/2020 SJ Lite Edition
+Revision Name : Instr_Fetch
+Top-level Entity Name : instr_fetch
+Family : MAX 10
+Total logic elements : 51
+    Total combinational functions : 51
+    Dedicated logic registers : 16
+Total registers : 16
+Total pins : 52
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0
+UFM blocks : 0
+ADC blocks : 0
