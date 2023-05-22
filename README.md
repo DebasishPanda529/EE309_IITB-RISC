@@ -15,4 +15,4 @@ it should also include hazard-mitigation techniques, such as **data-forwarding**
 
 **N.B. :** The reader is advised to exercise caution while using the code as a reference. Although the fundamental idea behind the code is more or less correct, we
 were unable to verify the correctness of the code for various instructions through testing and verification. Constructive suggestions regarding any change in the
-code are most welcome, and can be mailed [here](21d070021@iitb.ac.in).
+code are most welcome, and can be mailed [here](mailto:21d070021@iitb.ac.in).
