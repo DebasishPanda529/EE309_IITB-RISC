@@ -3,10 +3,10 @@
 Course Instructor :- [Prof. Virendra Singh](https://www.ee.iitb.ac.in/~viren/)
 
 Team members :-
-- [Debasish Panda](https://github.com/DebasishPanda529)[21D070021]
-- [Bhakti Matsyapal](https://github.com/Bhakti2305)[210070021]
-- [Ayan Das](https://github.com/Sad-Naya)[210070016]
-- [Anuja Sathe](https://github.com/AnujaSathe2308)[210070010]
+- [Debasish Panda](https://debasishpanda529.github.io) [21D070021]
+- [Bhakti Matsyapal](https://github.com/Bhakti2305) [210070021]
+- [Ayan Das](https://github.com/Sad-Naya) [210070016]
+- [Anuja Sathe](https://github.com/AnujaSathe2308) [210070010]
 
 IITB-RISC is a 16-bit elementary computer developed for teaching that is based on the Little Computer Architecture. It has 8 general-purpose registers (R0 to R7). 
 It follows the standard 6-stage [pipeline](https://en.wikipedia.org/wiki/Instruction_pipelining), namely- Instruction Fetch (**IF**), Instruction Decode (**ID**), 
